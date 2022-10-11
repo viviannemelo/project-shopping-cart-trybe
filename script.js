@@ -10,12 +10,12 @@
  * @param {string} imageSource - URL da imagem.
  * @returns {Element} Elemento de imagem do produto.
  */
-const createProductImageElement = (imageSource) => {
-  const img = document.createElement('img');
-  img.className = 'item__image';
-  img.src = imageSource;
-  return img;
-};
+// const createProductImageElement = (imageSource) => {
+//   const img = document.createElement('img');
+//   img.className = 'item__image';
+//   img.src = imageSource;
+//   return img;
+// };
 
 /**
  * Função responsável por criar e retornar qualquer elemento.
@@ -24,12 +24,12 @@ const createProductImageElement = (imageSource) => {
  * @param {string} innerText - Texto do elemento.
  * @returns {Element} Elemento criado.
  */
-const createCustomElement = (element, className, innerText) => {
-  const e = document.createElement(element);
-  e.className = className;
-  e.innerText = innerText;
-  return e;
-};
+// const createCustomElement = (element, className, innerText) => {
+//   const e = document.createElement(element);
+//   e.className = className;
+//   e.innerText = innerText;
+//   return e;
+// };
 
 /**
  * Função responsável por criar e retornar o elemento do produto.

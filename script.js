@@ -39,17 +39,17 @@
  * @param {string} product.thumbnail - URL da imagem do produto.
  * @returns {Element} Elemento de produto.
  */
-// const createProductItemElement = ({ id, title, thumbnail }) => {
-//   const section = document.createElement('section');
-//   section.className = 'item';
+const createProductItemElement = ({ id, title, thumbnail }) => {
+  const section = document.createElement('section');
+  section.className = 'item';
 
-//   section.appendChild(createCustomElement('span', 'item_id', id));
-//   section.appendChild(createCustomElement('span', 'item__title', title));
-//   section.appendChild(createProductImageElement(thumbnail));
-//   section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
+  section.appendChild(createCustomElement('span', 'item_id', id));
+  section.appendChild(createCustomElement('span', 'item__title', title));
+  section.appendChild(createProductImageElement(thumbnail));
+  section.appendChild(createCustomElement('button', 'item__add', 'Adicionar ao carrinho!'));
 
-//   return section;
-// };
+  return section;
+};
 
 /**
  * Função que recupera o ID do produto passado como parâmetro.
@@ -66,10 +66,23 @@
  * @param {string} product.price - Preço do produto.
  * @returns {Element} Elemento de um item do carrinho.
  */
-// const createCartItemElement = ({ id, title, price }) => {
-//   const li = document.createElement('li');
-//   li.className = 'cart__item';
-//   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
-//   li.addEventListener('click', cartItemClickListener);
-//   return li;
-// };
+const createCartItemElement = ({ id, title, price }) => {
+  const li = document.createElement('li');
+  li.className = 'cart__item';
+  li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
+  li.addEventListener('click', cartItemClickListener);
+  return li;
+};
+
+const productsFetch = async () => {
+    const getProducts = await fetchProducts('computador');
+    const elementItem = document.querySelector('.itens');
+    const { results } = getProducts;
+    results.forEach((product) => {
+        return elementItem.appendChild(createProductItemElement(product));
+    });
+};
+
+window.onload = () => {
+    productsFetch();
+};

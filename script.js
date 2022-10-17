@@ -1,6 +1,9 @@
 // Esse tipo de comentário que estão antes de todas as funções são chamados de JSdoc,
 // experimente passar o mouse sobre o nome das funções e verá que elas possuem descrições! 
 
+// const { fetchItem } = require("./helpers/fetchItem");
+// const { results } = require("./mocks/search");
+
 // const { fetchProducts } = require('./helpers/fetchProducts');
 
 // Fique a vontade para modificar o código já escrito e criar suas próprias funções!
@@ -56,7 +59,7 @@ const createProductItemElement = ({ id, title, thumbnail }) => {
  * @param {Element} product - Elemento do produto.
  * @returns {string} ID do produto.
  */
-// const getIdFromProductItem = (product) => product.querySelector('span.id').innerText;
+const getIdFromProductItem = (product) => product.querySelector('span.id').innerText;
 
 /**
  * Função responsável por criar e retornar um item do carrinho.
@@ -80,6 +83,30 @@ const createCartItemElement = ({ id, title, price }) => {
   return li;
 };
 
+// REQUISITO 04
+const addItemToShoppingCart = async () => {
+  const addItem = document.querySelectorAll('.item__add');
+  addItem.forEach((button) => {
+    button.addEventListener('click', async () => {
+      const getParent = button.parentNode.firstChild.innerText;
+      const response = await fetchItem(getParent);
+      const cartItems = document.querySelector('.cart__items');
+      cartItems.appendChild(createCartItemElement(response));
+    });
+  });
+};
+// const addItemToShoppingCart = async () => {
+//   const cartItems = document.querySelector('.cart__items');
+//   const addItem = document.querySelectorAll('.item__add');
+
+//   addItem.forEach((button) => button.addEventListener('click', async (event) => {
+//     const getParent = fetchItem(getIdFromProductItem(event.target.parentNode.firstChild.innerText));
+//     const response = await fetchItem(getParent);
+//     cartItems.appendChild(createCartItemElement(response));
+// }));
+// };
+
+// Requisito 03
 const products = async () => {
     const getProducts = await fetchProducts('computador');
     const elementItem = document.querySelector('.items');
@@ -88,17 +115,11 @@ const products = async () => {
       .appendChild(createProductItemElement(product)));
   };
 
-// REQUISITO 04
-  const addItemToShoppingCart = async (idItem) => {
-  const cartItems = document.querySelector('.cart__items');
-  const addItem = document.querySelectorAll('.item__add');
-  addItem.forEach((button) => button.addEventListener('click', async () => {
-    const response = await fetchItem(idItem);
-    cartItems.appendChild(createCartItemElement(response));
-  }));
-};
+setTimeout(() => {
+  addItemToShoppingCart();
+}, 1000);
 
 window.onload = () => {
     products();
-    addItemToShoppingCart('MLB1341706310');
+    addItemToShoppingCart();
 };

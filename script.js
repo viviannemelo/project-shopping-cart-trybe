@@ -123,4 +123,6 @@ const products = async () => {
 
 window.onload = () => {
     products();
+    getSavedCartItems();
+    saveCartItems();
 };

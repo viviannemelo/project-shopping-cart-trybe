@@ -70,7 +70,12 @@ const createProductItemElement = ({ id, title, thumbnail }) => {
  * @returns {Element} Elemento de um item do carrinho.
  */
 
-// REQUISITO 05
+// Requisito 09
+// const totalPrice = () => {
+//   const priceText = document.querySelector('.total-price');
+// };
+
+// Requisito 05
 const cartItemClickListener = (event) => {
   event.target.remove();
 };
@@ -81,6 +86,15 @@ const createCartItemElement = ({ id, title, price }) => {
   li.innerText = `ID: ${id} | TITLE: ${title} | PRICE: $${price}`;
   li.addEventListener('click', cartItemClickListener);
   return li;
+};
+
+// Requisito 10
+const emptyCart = () => {
+  const getButton = document.querySelector('.empty-cart');
+  const getItems = document.querySelector('.cart__items');
+  getButton.addEventListener('click', () => {
+    getItems.innerHTML = '';
+  });
 };
 
 // REQUISITO 04
@@ -104,6 +118,7 @@ const products = async () => {
     results.forEach((product) => elementItem
       .appendChild(createProductItemElement(product)));
     addItemToShoppingCart();
+    emptyCart();
   };
 
 window.onload = () => {

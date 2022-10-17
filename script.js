@@ -95,16 +95,6 @@ const addItemToShoppingCart = async () => {
     });
   });
 };
-// const addItemToShoppingCart = async () => {
-//   const cartItems = document.querySelector('.cart__items');
-//   const addItem = document.querySelectorAll('.item__add');
-
-//   addItem.forEach((button) => button.addEventListener('click', async (event) => {
-//     const getParent = fetchItem(getIdFromProductItem(event.target.parentNode.firstChild.innerText));
-//     const response = await fetchItem(getParent);
-//     cartItems.appendChild(createCartItemElement(response));
-// }));
-// };
 
 // Requisito 03
 const products = async () => {

@@ -113,13 +113,9 @@ const products = async () => {
     const { results } = getProducts;
     results.forEach((product) => elementItem
       .appendChild(createProductItemElement(product)));
+    addItemToShoppingCart();
   };
-
-setTimeout(() => {
-  addItemToShoppingCart();
-}, 1000);
 
 window.onload = () => {
     products();
-    addItemToShoppingCart();
 };

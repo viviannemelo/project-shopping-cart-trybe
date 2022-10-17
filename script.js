@@ -1,7 +1,7 @@
 // Esse tipo de comentário que estão antes de todas as funções são chamados de JSdoc,
 // experimente passar o mouse sobre o nome das funções e verá que elas possuem descrições! 
 
-const { fetchProducts } = require('./helpers/fetchProducts');
+// const { fetchProducts } = require('./helpers/fetchProducts');
 
 // Fique a vontade para modificar o código já escrito e criar suas próprias funções!
 
@@ -67,9 +67,10 @@ const createProductItemElement = ({ id, title, thumbnail }) => {
  * @returns {Element} Elemento de um item do carrinho.
  */
 
-// const cartItemClickListener = (element) => {
-//   element.target.remove();
-// };
+// REQUISITO 05
+const cartItemClickListener = (element) => {
+  element.target.remove();
+};
 
 const createCartItemElement = ({ id, title, price }) => {
   const li = document.createElement('li');
@@ -87,16 +88,17 @@ const products = async () => {
       .appendChild(createProductItemElement(product)));
   };
 
-// const addItemToShoppingCart = async (idItem) => {
-//   const cartItems = document.querySelector('.cart__items');
-//   const addItem = document.querySelectorAll('.item__add');
-//   addItem.forEach((button) => button.addEventListener('click', async () => {
-//     const response = await fetchItem(idItem);
-//     cartItems.appendChild(createCartItemElement(response));
-//   }));
-// };
+// REQUISITO 04
+  const addItemToShoppingCart = async (idItem) => {
+  const cartItems = document.querySelector('.cart__items');
+  const addItem = document.querySelectorAll('.item__add');
+  addItem.forEach((button) => button.addEventListener('click', async () => {
+    const response = await fetchItem(idItem);
+    cartItems.appendChild(createCartItemElement(response));
+  }));
+};
 
 window.onload = () => {
     products();
-    // addItemToShoppingCart('MLB1341706310');
+    addItemToShoppingCart('MLB1341706310');
 };

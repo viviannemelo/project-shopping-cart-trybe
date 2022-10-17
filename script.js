@@ -67,9 +67,9 @@ const createProductItemElement = ({ id, title, thumbnail }) => {
  * @returns {Element} Elemento de um item do carrinho.
  */
 
-const cartItemClickListener = (element) => {
-  element.target.remove();
-};
+// const cartItemClickListener = (element) => {
+//   element.target.remove();
+// };
 
 const createCartItemElement = ({ id, title, price }) => {
   const li = document.createElement('li');
@@ -87,16 +87,16 @@ const products = async () => {
       .appendChild(createProductItemElement(product)));
   };
 
-const addItemToShoppingCart = async (idItem) => {
-  const cartItems = document.querySelector('.cart__items');
-  const addItem = document.querySelectorAll('.item__add');
-  addItem.forEach((button) => button.addEventListener('click', async () => {
-    const response = await fetchItem(idItem);
-    cartItems.appendChild(createCartItemElement(response));
-  }));
-};
+// const addItemToShoppingCart = async (idItem) => {
+//   const cartItems = document.querySelector('.cart__items');
+//   const addItem = document.querySelectorAll('.item__add');
+//   addItem.forEach((button) => button.addEventListener('click', async () => {
+//     const response = await fetchItem(idItem);
+//     cartItems.appendChild(createCartItemElement(response));
+//   }));
+// };
 
 window.onload = () => {
     products();
-    addItemToShoppingCart('MLB1341706310');
+    // addItemToShoppingCart('MLB1341706310');
 };

@@ -82,6 +82,16 @@ const products = async () => {
       .appendChild(createProductItemElement(product)));
   };
 
+const addItemToShoppingCart = async (idItem) => {
+  const cartItems = document.querySelector('.cart__items');
+  const addItem = document.querySelectorAll('.item__add');
+  addItem.forEach((button) => button.addEventListener('click', async () => {
+    const response = await fetchItem(idItem);
+    cartItems.appendChild(createCartItemElement(response));
+  }));
+};
+
 window.onload = () => {
     products();
+    addItemToShoppingCart('MLB1341706310');
 };

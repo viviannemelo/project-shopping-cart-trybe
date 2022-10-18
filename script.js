@@ -1,10 +1,6 @@
 // Esse tipo de comentário que estão antes de todas as funções são chamados de JSdoc,
 // experimente passar o mouse sobre o nome das funções e verá que elas possuem descrições! 
-
-// const { fetchItem } = require("./helpers/fetchItem");
-// const { results } = require("./mocks/search");
-
-// const { fetchProducts } = require('./helpers/fetchProducts');
+const cartItems = document.querySelector('.cart__items');
 
 // Fique a vontade para modificar o código já escrito e criar suas próprias funções!
 
@@ -88,29 +84,34 @@ const createCartItemElement = ({ id, title, price }) => {
   return li;
 };
 
-// Requisito 10
 const emptyCart = () => {
   const getButton = document.querySelector('.empty-cart');
-  const getItems = document.querySelector('.cart__items');
+  const getCart = document.querySelector('.cart__items');
   getButton.addEventListener('click', () => {
-    getItems.innerHTML = '';
+    getCart.innerHTML = '';
   });
 };
 
-// REQUISITO 04
+const buttonEvent = async (button) => {
+  const getParent = button.parentNode.firstChild.innerText;
+  const response = await fetchItem(getParent);
+  cartItems.appendChild(createCartItemElement(response));
+  const saveInLocalStorage = JSON.parse(getSavedCartItems());
+  if (saveInLocalStorage) {
+    saveInLocalStorage.push(response);
+    saveCartItems(JSON.stringify(saveInLocalStorage));
+  } else {
+    saveCartItems(JSON.stringify([response]));
+  }
+};
+
 const addItemToShoppingCart = async () => {
   const addItem = document.querySelectorAll('.item__add');
   addItem.forEach((button) => {
-    button.addEventListener('click', async () => {
-      const getParent = button.parentNode.firstChild.innerText;
-      const response = await fetchItem(getParent);
-      const cartItems = document.querySelector('.cart__items');
-      cartItems.appendChild(createCartItemElement(response));
-    });
+    button.addEventListener('click', () => buttonEvent(button));
   });
 };
 
-// Requisito 03
 const products = async () => {
     const getProducts = await fetchProducts('computador');
     const elementItem = document.querySelector('.items');
@@ -123,6 +124,10 @@ const products = async () => {
 
 window.onload = () => {
     products();
-    getSavedCartItems();
-    saveCartItems();
+    const saveInLocalStorage = JSON.parse(getSavedCartItems());
+    if (saveInLocalStorage) {
+      saveInLocalStorage.forEach((items) => {
+         cartItems.appendChild(createCartItemElement(items)); 
+        });
+    }
 };

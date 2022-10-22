@@ -11,10 +11,10 @@ body {
 
 .header {
   position: relative;
-  background-color: rgb(3, 52, 45);
+  background-color: rgb(56, 17, 64);
   display: flex;
   align-items: center;
-  width: 100%;
+  width: 100vw;
   height: 60px;
 }
 
@@ -24,16 +24,18 @@ body {
 
 .title {
   color: rgb(221, 221, 221);
-  font-size: 30px;
+  font-size: 35px;
   padding-left: 30px;
+  position: relative;
+  left: 300px;
 }
 
 .container-cartTitle {
   position: relative;
   display: flex;
   align-items: center;
-  background-color: rgb(10, 118, 79);
-  width: 40%;
+  background-color: rgb(91, 59, 126);
+  width: 30%;
   height: 100%;
   margin-left: 30px;
 }
@@ -49,7 +51,7 @@ body {
   right: 61.5%;
   width: 39.5%;
   height: 15px;
-  background: rgb(10, 118, 79);
+  background: rgb(91, 59, 126);
   transform: skew(-45deg);
   z-index: 0;
 }
@@ -61,7 +63,7 @@ body {
   right: 61.5%;
   width: 39.5%;
   height: 15px;
-  background: rgb(10, 118, 79);
+  background: rgb(91, 59, 126);
   transform: skew(45deg);
   z-index: 0;
 }
@@ -76,7 +78,7 @@ body {
 .container {
   display: flex;
   justify-content: space-around;
-  width: 100%;
+  width: 100vw;
 }
 
 .title strong {
@@ -97,13 +99,16 @@ body {
   height: auto;
   margin: 5px;
   width: 200px;
-  border: 2px solid rgb(234, 234, 233);
-  border-radius: 5px;
+  border: 2px solid rgb(220, 203, 229);
+  border-radius: 8px;
   box-sizing: border-box;
 }
 
-.item .item__id {
-  display: none;
+.item .item_id {
+  font-size: 9px;
+  font-style: oblique;
+  align-self: center;
+  padding-top: 5px;
 }
 
 .item .item__title {
@@ -112,15 +117,20 @@ body {
   flex-grow: 1;
   padding: 10px;
   text-align: center;
+  font-size: 13px;
+  font-weight: 500;
+  justify-content: center;
 }
 
 .item .item__image {
-  width: 100%;
+  width: 90%;
+  align-self: center;
 }
 
 .item .item__add {
-  background-color: rgb(5, 52, 219);
+  background-color: #662a92;
   border: 0;
+  border-radius: 9px;
   cursor: pointer;
   margin: 0;
   padding: 10px;
@@ -129,21 +139,37 @@ body {
 
 .cart {
   display: flex;
-  flex-basis: 32%;
+  flex-basis: 25%;
   flex-flow: column wrap;
-  background-color: rgb(241, 241, 238);
+  background-color: rgba(124, 94, 135, 0.37);
   height: 100vh;
 }
 
 .cart .cart__items {
   height: 500px;
-  overflow-y: scroll;
+  width: 180px;
+  position: relative;
+  align-self: center;
+  margin-top: 20px;
+}
+
+.cart .cart__items li {
+  margin-bottom: 15px;
+}
+
+.cart p {
+  margin-bottom: 35px;
+  margin-left: 35px;
+  font-weight: 600;
+  color: #662a92;
 }
 
 .empty-cart {
-  width: 170px;
-  height: 35px;
+  width: 200px;
+  height: 45px;
   margin: 0 auto;
-  border: 2px solid rgb(5, 52, 219);
-  background-color: rgb(249, 249, 246);
+  color: white;
+  border: 2px solid rgb(91, 59, 126);
+  background-color: rgb(91, 59, 126);
+  border-radius: 10px;
 }

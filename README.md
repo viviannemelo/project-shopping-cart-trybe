@@ -1,10 +1,20 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Shopping Cart :shopping_cart:
+
+Esse é um projeto desenvolvido durante o módulo de Front-end na [Trybe](https://www.betrybe.com/), em que utilizamos o que aprendemos sobre APIs, Web Storage e Testes Assíncronos para fazer um protótipo de um e-Commerce utilizando API do Mercado Livre que recebia informações com eventos de javascript e armazenava informações no localStorage.
+
+![Screenshot - preview](./preview.gif)
+
+## Skills desenvolvidas
+
+* Desenvolvimento com HTML, CSS e JavaScript;
+* Implementar testes utilizando Jest;
+* Criar operações assíncronas;
+* Buscar dados de uma API;
+* Armazenar dados no localStorage.
+
+## Ferramentas utilizadas
+
+* HTML5
+* CSS3
+* JavaScript ES6+
+* Jest
